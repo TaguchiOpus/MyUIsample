@@ -35,11 +35,11 @@ public class FooterUI : MonoBehaviour
         }
 
         yield return openAnimation.Setup();
-        openAnimation.StandbyAnimtion();
     }
 
     public void OpneFooterUI()
     {
+        openAnimation.StandbyAnimtion();
         openAnimation.Play();
     }
     // Start is called before the first frame update
