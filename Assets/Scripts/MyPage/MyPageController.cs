@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyPageController : MyControllerBase
+public class MypageController : MyControllerBase
 {
     public MypageAnnounceManagerUI announceManager;
     public MypageAnimatinManager animatinManager;

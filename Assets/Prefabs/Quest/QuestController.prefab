@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd00695b1338c54299c24e41dd454e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAnimaiton: {fileID: 6112595482249357708}
+  releaseAnimaiton: {fileID: 4532458700513750088}
 --- !u!1 &8202259481929142159
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,7 +76,13 @@ public class MypageAnimatinManager : MonoBehaviour
         releaseAnimationUI.SetOnFinished(() => isPlay = false);
         missionAnnounceUI.StandbyAnimtion(false);
 
+        isPlay = true;
+
         releaseAnimationUI.Play();
         missionAnnounceUI.Play();
+
+        yield return new WaitUntil(() => !isPlay);
+
+        yield break;
     }
 }

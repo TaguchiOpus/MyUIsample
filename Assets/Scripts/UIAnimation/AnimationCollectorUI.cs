@@ -21,8 +21,10 @@ public class AnimationCollectorUI : MonoBehaviour
     List<AnimationUI> animationList = new List<AnimationUI>();
     AnimationCollector animationCollector;
     Action onFinished = null;
+    bool isInitialized = false;
     bool isReady = true;
     bool isPlaying = false;
+    bool isStandby = false;
     #endregion
 
     #region Property
@@ -40,7 +42,13 @@ public class AnimationCollectorUI : MonoBehaviour
             return true;
         }
     }
+    public bool IsPlay { get { return isPlaying || isPlay; } }
     #endregion
+
+    public void ClearOnFinished()
+    {
+        onFinished = null;
+    }
 
     public void SetOnFinished(Action on_finish)
     {
@@ -49,18 +57,25 @@ public class AnimationCollectorUI : MonoBehaviour
 
     public void StandbyAnimtion()
     {
-        animationCollector.StandbyAnimation(isForward, playType, () => EndAnimation());
+        if(!isStandby)
+            animationCollector.StandbyAnimation(isForward, playType, () => EndAnimation());
+        isStandby = true;
     }
 
     public void StandbyAnimtion(bool forward)
     {
-        isForward = forward;
-        animationCollector.StandbyAnimation(isForward, playType, () => EndAnimation());
+        if (!isStandby)
+        {
+            isForward = forward;
+            animationCollector.StandbyAnimation(isForward, playType, () => EndAnimation());
+        }
+        isStandby = true;
     }
 
     public void StartAnimation()
     {
         isPlaying = true;
+        isStandby = false;
         animationCollector.StartAnimation();
         //foreach (var ani in animationList)
             //ani.Play();
@@ -68,25 +83,34 @@ public class AnimationCollectorUI : MonoBehaviour
 
     public void Initialize(GameObject target)
     {
-        aniTarget = target.GetComponent<RectTransform>();
-        var anime = target.GetComponents<AnimationUI>();
-        animationCollector = new AnimationCollector(anime.Select(x => x.UiAnimation).ToList(), aniTarget);
-        animationList = new List<AnimationUI>();
-        animationList.AddRange(anime);
+        if (!isInitialized)
+        {
+            isInitialized = true;
+            aniTarget = target.GetComponent<RectTransform>();
+            var anime = target.GetComponents<AnimationUI>();
+            animationCollector = new AnimationCollector(anime.Select(x => x.UiAnimation).ToList(), aniTarget);
+            animationList = new List<AnimationUI>();
+            animationList.AddRange(anime);
+        }
     }
 
     public IEnumerator Initialize()
     {
-        if (aniTarget == null)
-            aniTarget = GetComponent<RectTransform>();
-        var anime = GetComponents<AnimationUI>();
-        animationList = new List<AnimationUI>();
-        animationList.AddRange(anime);
-        foreach (var ani in animationList)
+        if (!isInitialized)
         {
-            ani.Initialize();
+            isInitialized = true;
+            if (aniTarget == null)
+                aniTarget = GetComponent<RectTransform>();
+            var anime = GetComponents<AnimationUI>();
+            animationList = new List<AnimationUI>();
+            animationList.AddRange(anime);
+            foreach (var ani in animationList)
+            {
+                ani.Initialize();
+            }
+            animationCollector = new AnimationCollector(anime.Select(x => x.UiAnimation).ToList(), aniTarget);
         }
-        animationCollector = new AnimationCollector(anime.Select(x => x.UiAnimation).ToList(), aniTarget);
+        isReady = false;
         yield break;
     }
 
@@ -106,7 +130,7 @@ public class AnimationCollectorUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Initialize());
+        StartCoroutine(Initialize());
     }
 
     // Update is called once per frame

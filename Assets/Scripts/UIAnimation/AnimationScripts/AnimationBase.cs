@@ -93,7 +93,7 @@ public class AnimationBase
         aniPlayType = play_type;
         finishCnt = 0;
         cntTime = isForward ? 0.0f : aniLength;
-        PlayingAnimation(cntTime);
+        PlayingAnimation(aniCurve.Evaluate(cntTime / aniLength));
     }
 
     /// <summary>

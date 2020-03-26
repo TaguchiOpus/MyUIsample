@@ -5,7 +5,7 @@ using UnityEngine;
 public class MypageAnnounceManagerUI : MonoBehaviour
 {
     public CollectiveAnimationUI collectiveAnimation;
-    public MyPageController mypageController;
+    public MypageController mypageController;
 
     public void Initialize()
     {

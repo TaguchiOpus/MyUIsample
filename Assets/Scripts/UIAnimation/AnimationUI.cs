@@ -42,6 +42,11 @@ public class AnimationUI : MonoBehaviour
     public bool IsStandby { get { return isStandby; } }
     #endregion
 
+    private void Start()
+    {
+        Initialize();
+    }
+
     public void SetAniTarget(RectTransform target)
     {
         aniTarget = target;
@@ -121,7 +126,7 @@ public class AnimationUI : MonoBehaviour
                 aniTarget = GetComponent<RectTransform>();
 
             Load();
-
+            isReady = false;
         }
     }
 
