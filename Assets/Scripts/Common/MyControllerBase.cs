@@ -27,11 +27,13 @@ public class MyControllerBase : MonoBehaviour
 
     public virtual IEnumerator OnSetup()
     {
+        gameObject.SetActive(true);
         yield break;
     }
 
     public virtual IEnumerator OnRelease()
     {
+        gameObject.SetActive(false);
         yield break;
     }
 

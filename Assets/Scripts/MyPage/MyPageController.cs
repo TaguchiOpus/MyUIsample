@@ -22,14 +22,16 @@ public class MypageController : MyControllerBase
 
     public override IEnumerator OnSetup()
     {
-        yield return base.OnSetup();
         yield return animatinManager.Setup();
+        animatinManager.StandbyAnimation();
+        gameObject.SetActive(true);
         yield return animatinManager.OpenAnimaiton();
     }
 
     public override IEnumerator OnRelease()
     {
         yield return animatinManager.ReleaseAnimation();
+        gameObject.SetActive(false);
         yield break;
     }
 

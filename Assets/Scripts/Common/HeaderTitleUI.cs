@@ -21,27 +21,10 @@ public class HeaderTitleUI : MonoBehaviour
 
     public void SetTitle(SceneName sceneName)
     {
-        switch (sceneName)
-        {
-            case SceneName.Quest:
-                titleImg.color = ColorPalette.Quest;
-                break;
-            case SceneName.Reinforce:
-                titleImg.color = ColorPalette.Reinforce;
-                break;
-            case SceneName.Party:
-                titleImg.color = ColorPalette.Party;
-                break;
-            case SceneName.Castle:
-                titleImg.color = ColorPalette.Castle;
-                break;
-            case SceneName.Summon:
-                titleImg.color = ColorPalette.Summon;
-                break;
-            default:
-                titleImg.gameObject.SetActive(false);
-                return;
-        }
+        if (MasterController.NonTitleScene(sceneName))
+            return;
+
+        titleImg.color = sceneName.GetColor();
         titleText.text = sceneName.GetName();
         titleImg.gameObject.SetActive(true);
     }

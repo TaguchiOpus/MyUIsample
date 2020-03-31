@@ -52,6 +52,17 @@ public class CollectiveAnimationUI : MonoBehaviour
     {
         onFinished = null;
     }
+
+    public void SetTarget(List<RectTransform> target_list,List<float> delay_list)
+    {
+        targetList = target_list;
+        delayList = delay_list;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Initialize());
+    }
     public IEnumerator Initialize()
     {
         if (!isInitialized)
@@ -66,7 +77,7 @@ public class CollectiveAnimationUI : MonoBehaviour
             //foreach (var ani in collectorList)
                    //ani.StandbyAnimation(isForward, aniPlayType,() => isPlay = false);
             //yield return new WaitForEndOfFrame();
-            //isReady = false;
+            isReady = false;
         }
         yield break;
     }
@@ -136,7 +147,17 @@ public class CollectiveAnimationUI : MonoBehaviour
         foreach (var collector in collectorList)
         {
             if (!collector.IsStandby)
-                collector.StandbyAnimation();
+                collector.StandbyAnimation(isForward);
+        }
+    }
+
+    public void StandbyAnimation(bool is_forward)
+    {
+        isForward = is_forward;
+        foreach (var collector in collectorList)
+        {
+            if (!collector.IsStandby)
+                collector.StandbyAnimation(isForward);
         }
     }
 

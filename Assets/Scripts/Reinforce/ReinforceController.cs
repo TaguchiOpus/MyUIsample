@@ -13,13 +13,13 @@ public class ReinforceController : MyControllerBase
 
     public override IEnumerator OnSetup()
     {
-        yield break;
+        return base.OnSetup();
 
     }
 
     public override IEnumerator OnRelease()
     {
-        yield break;
+        return base.OnRelease();
     }
 
 }

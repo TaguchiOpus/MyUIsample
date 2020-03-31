@@ -32,5 +32,31 @@ namespace CommonSetting
             var description = ((DescriptionAttribute)attributes[0]).Description;
             return description;
         }
+
+        public static Color GetColor(this SceneName sceneName)
+        {
+            Color res = Color.white;
+
+            switch (sceneName)
+            {
+                case SceneName.Quest:
+                    res = ColorPalette.Quest;
+                    break;
+                case SceneName.Reinforce:
+                    res = ColorPalette.Reinforce;
+                    break;
+                case SceneName.Party:
+                    res = ColorPalette.Party;
+                    break;
+                case SceneName.Castle:
+                    res = ColorPalette.Castle;
+                    break;
+                case SceneName.Summon:
+                    res = ColorPalette.Summon;
+                    break;
+            }
+
+            return res;
+        }
     }
 }

@@ -35,7 +35,7 @@ public class MypageAnimatinManager : MonoBehaviour
         yield break;
     }
 
-    private void StandbyAnimation()
+    public void StandbyAnimation()
     {
         anounceManaUI.StandbyAnimation();
         commandUI.StandbyAnimation();
@@ -49,8 +49,6 @@ public class MypageAnimatinManager : MonoBehaviour
             yield break;
 
         isOpen = true;
-        StandbyAnimation();
-
         isPlay = true;
 
         anounceManaUI.Play();

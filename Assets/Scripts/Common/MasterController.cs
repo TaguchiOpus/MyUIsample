@@ -15,6 +15,8 @@ public partial class MasterController : MonoBehaviour
     [SerializeField]
     FooterUI footerUI;
     [SerializeField]
+    SceneName firstScene = SceneName.None;  // 開始シーン(デバッグ用)
+    [SerializeField]
     List<MyControllerBase> controllerList;
     [SerializeField]
     List<SceneName> sceneNameList;
@@ -44,7 +46,11 @@ public partial class MasterController : MonoBehaviour
 
         footerUI.OpneFooterUI();
 
-        yield return ChangeScene(SceneName.Mypage);
+        SceneName scene = firstScene;
+        if (scene == SceneName.None)
+            scene = SceneName.Mypage;
+
+        yield return ChangeScene(scene);
 
         yield break;
     }
@@ -61,7 +67,9 @@ public partial class MasterController : MonoBehaviour
 
         int currentIndex = sceneNameList.IndexOf(currentScene);
         if (currentScene != SceneName.None && currentIndex >= 0)
+        {
             yield return controllerList[currentIndex].OnRelease();
+        }
 
         yield return new WaitUntil(() => !headerUI.IsPlay);
 
