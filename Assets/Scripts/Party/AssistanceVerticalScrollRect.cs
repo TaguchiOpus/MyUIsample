@@ -25,7 +25,10 @@ public class AssistanceVerticalScrollRect : MonoBehaviour
 
     private void Update()
     {
-        
+        if (isFocus)
+            Scroll(target.GetSiblingIndex());
+
+        enabled = false;
     }
 
     /// <summary>
