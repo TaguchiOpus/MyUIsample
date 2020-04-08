@@ -131,10 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentImg: {fileID: 5423445427351887406}
-  childrenImg:
-  - {fileID: 0}
-  childrenText:
-  - {fileID: 0}
+  childrenImg: []
+  childrenText: []
 --- !u!1 &348130069680570983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1069,7 @@ MonoBehaviour:
   isFromTarget: 1
   posType: 1
   fromPos: {x: 0, y: 0, z: 0}
-  toPos: {x: -10, y: 0, z: 0}
+  toPos: {x: -5, y: 0, z: 0}
   lerpType: 0
 --- !u!114 &3102500909788610713
 MonoBehaviour:
@@ -1086,25 +1084,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniTarget: {fileID: 0}
-  aniLength: 0.4
+  aniLength: 0.3
   aniCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -2250,8 +2248,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -2259,8 +2257,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -3093,8 +3091,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -3102,8 +3100,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -3214,10 +3212,10 @@ GameObject:
   - component: {fileID: 3742461979088253259}
   - component: {fileID: 6818669277288161}
   - component: {fileID: 7211542732877349256}
-  - component: {fileID: 8836611212088924351}
   - component: {fileID: 8845315709180406036}
   - component: {fileID: 1597967731494466549}
   - component: {fileID: 720985026925172114}
+  - component: {fileID: 8836611212088924351}
   - component: {fileID: 2083682917990362849}
   - component: {fileID: 8574252296659249857}
   - component: {fileID: 6702689848998947776}
@@ -3284,49 +3282,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8836611212088924351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8863492560383793771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141a045a85358864c8c6c0155bdad9e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aniTarget: {fileID: 0}
-  aniLength: 0.3
-  aniCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  isPlay: 0
-  isForward: 1
-  aniPlayType: 1
-  fromAngle: {x: 0, y: 0, z: 0}
-  toAngle: {x: 0, y: 360, z: 0}
 --- !u!114 &8845315709180406036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3402,6 +3357,49 @@ MonoBehaviour:
   isPlay: 0
   isForward: 1
   playType: 1
+--- !u!114 &8836611212088924351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863492560383793771}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141a045a85358864c8c6c0155bdad9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aniTarget: {fileID: 0}
+  aniLength: 0.3
+  aniCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isPlay: 0
+  isForward: 1
+  aniPlayType: 1
+  fromAngle: {x: 0, y: 0, z: 0}
+  toAngle: {x: 0, y: 360, z: 0}
 --- !u!114 &2083682917990362849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3409,7 +3407,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863492560383793771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04dc69e72b2a81d48948e7a63800dde9, type: 3}
   m_Name: 
@@ -3451,7 +3449,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863492560383793771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aef772a0014f6334984ce9755ae983bf, type: 3}
   m_Name: 
@@ -3464,8 +3462,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -3473,8 +3471,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -3496,7 +3494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863492560383793771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d6ec899a47481c46a69ab49e6d0d8c9, type: 3}
   m_Name: 

@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class PartyController : MyControllerBase
 {
+    [SerializeField]
+    PartyAnimationManager animationManager;
 
     public override IEnumerator OnInitialize()
     {
+        yield return animationManager.Initialize();
         yield break;
 
     }
 
     public override IEnumerator OnSetup()
     {
-        return base.OnSetup();
+        yield return animationManager.Setup();
+        animationManager.StandbyAnimation(true);
+        gameObject.SetActive(true);
+        yield return animationManager.StartAnimation();
+        yield break;
     }
 
     public override IEnumerator OnRelease()
     {
-        return base.OnRelease();
+        animationManager.StandbyAnimation(false);
+        yield return animationManager.StartAnimation();
+        gameObject.SetActive(false);
+        yield break;
     }
 
 }

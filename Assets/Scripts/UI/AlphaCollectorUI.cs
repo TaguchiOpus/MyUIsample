@@ -14,6 +14,8 @@ public class AlphaCollectorUI : MonoBehaviour
 
     float bufAlpha = 1;
 
+    NotificationObject<float> notification;
+
     bool IsChnaged
     {
         get
@@ -43,6 +45,23 @@ public class AlphaCollectorUI : MonoBehaviour
             childrenImg = GetComponentsInChildren<UnityEngine.UI.Image>().ToList();
         if (childrenText == null)
             childrenText = GetComponentsInChildren<UnityEngine.UI.Text>().ToList();
+
+        notification = new NotificationObject<float>(parentImg.color.a);
+        notification.action += UpdateAlpha;
+    }
+
+    private void Start()
+    {
+        UpdateAlpha(parentImg.color.a);
+    }
+
+    void UpdateAlpha(float alpha)
+    {
+        bufAlpha = alpha;
+        foreach (var child in childrenImg)
+            child.color = new Color(child.color.r, child.color.g, child.color.b, bufAlpha);
+        foreach (var child in childrenText)
+            child.color = new Color(child.color.r, child.color.g, child.color.b, bufAlpha);
     }
 
     // Update is called once per frame

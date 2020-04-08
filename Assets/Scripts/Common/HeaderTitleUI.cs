@@ -35,7 +35,7 @@ public class HeaderTitleUI : MonoBehaviour
             return;
 
         animation.ClearOnFinished();
-        animation.StandbyAnimtion(true);
+        animation.StandbyAnimation(true);
         SetTitle(sceneName);
         if (!animation.gameObject.activeSelf)
             return;
@@ -50,7 +50,7 @@ public class HeaderTitleUI : MonoBehaviour
         animation.SetOnFinished(() => {
             titleImg.gameObject.SetActive(false);
             });
-        animation.StandbyAnimtion(false);
+        animation.StandbyAnimation(false);
         animation.Play();
     }
 

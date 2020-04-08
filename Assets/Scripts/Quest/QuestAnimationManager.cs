@@ -30,7 +30,7 @@ public class QuestAnimationManager : MonoBehaviour
     public void StandbyAnimaiton(bool is_open)
     {
         scrollViewChildren.StandbyAnimation(is_open);
-        scrollViewBer.StandbyAnimtion(is_open);
+        scrollViewBer.StandbyAnimation(is_open);
     }
 
     public IEnumerator OpenAnimation()

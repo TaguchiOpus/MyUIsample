@@ -24,7 +24,6 @@ public class AnimationCollectorUI : MonoBehaviour
     bool isInitialized = false;
     bool isReady = true;
     bool isPlaying = false;
-    bool isStandby = false;
     #endregion
 
     #region Property
@@ -55,30 +54,23 @@ public class AnimationCollectorUI : MonoBehaviour
         onFinished = on_finish;
     }
 
-    public void StandbyAnimtion()
+    public void StandbyAnimation()
     {
-        if(!isStandby)
-            animationCollector.StandbyAnimation(isForward, playType, () => EndAnimation());
-        isStandby = true;
+        if (!animationCollector.IsStandby)
+            animationCollector.StandbyAnimation(isForward,onFinish:()=>EndAnimation());
     }
 
-    public void StandbyAnimtion(bool forward)
+    public void StandbyAnimation(bool forward)
     {
-        if (!isStandby)
-        {
-            isForward = forward;
-            animationCollector.StandbyAnimation(isForward, playType, () => EndAnimation());
-        }
-        isStandby = true;
+        isForward = forward;
+        if (!animationCollector.IsStandby)
+            animationCollector.StandbyAnimation(isForward, onFinish: () => EndAnimation());
     }
 
     public void StartAnimation()
     {
         isPlaying = true;
-        isStandby = false;
         animationCollector.StartAnimation();
-        //foreach (var ani in animationList)
-            //ani.Play();
     }
 
     public void Initialize(GameObject target)
@@ -123,6 +115,7 @@ public class AnimationCollectorUI : MonoBehaviour
     public void Play()
     {
         isPlay = true;
+        enabled = true;
     }
     private void Awake()
     {
@@ -138,7 +131,7 @@ public class AnimationCollectorUI : MonoBehaviour
     {
         if (isPlay&&!isReady)
         {
-            StandbyAnimtion();
+            StandbyAnimation();
             StartAnimation();
             isPlay = false;
         }

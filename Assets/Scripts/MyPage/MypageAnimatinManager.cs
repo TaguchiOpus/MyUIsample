@@ -39,8 +39,8 @@ public class MypageAnimatinManager : MonoBehaviour
     {
         anounceManaUI.StandbyAnimation();
         commandUI.StandbyAnimation();
-        missionAnnounceUI.StandbyAnimtion(true);
-        changeViewBtn.StandbyAnimtion();
+        missionAnnounceUI.StandbyAnimation(true);
+        changeViewBtn.StandbyAnimation();
     }
 
     public IEnumerator OpenAnimaiton(Action onFinish = null)
@@ -72,7 +72,7 @@ public class MypageAnimatinManager : MonoBehaviour
         yield return releaseAnimationUI.Initialize();
         yield return releaseAnimationUI.Setup();
         releaseAnimationUI.SetOnFinished(() => isPlay = false);
-        missionAnnounceUI.StandbyAnimtion(false);
+        missionAnnounceUI.StandbyAnimation(false);
 
         isPlay = true;
 

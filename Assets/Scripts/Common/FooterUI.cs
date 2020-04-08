@@ -40,7 +40,7 @@ public class FooterUI : MonoBehaviour
 
     public void OpneFooterUI()
     {
-        openAnimation.StandbyAnimtion();
+        openAnimation.StandbyAnimation();
         openAnimation.Play();
     }
     // Start is called before the first frame update
