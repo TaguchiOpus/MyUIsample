@@ -67,7 +67,7 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
         // 末尾の要素
         index = childCount-1;
         // 末尾の要素の中心座標
-        float lastCenterPos = (childHeight * index) + (childHeight / 2.0f);
+        float lastCenterPos = (childHeight * index) + ((childHeight-space) / 2.0f);
         // 末尾の要素の上端座標
         float lastTopPos = (childHeight * index);
         // 末尾の要素の中心座標
@@ -77,8 +77,10 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
         if (firstCenterPos > topPos)
         {
             ChangeIndex(false);
-            float newValue = (childHeight + (childHeight / 2.0f)) / ((childHeight * childCount) - viewHeigth);
-            scrollRect.verticalNormalizedPosition = 1.0f - newValue;
+            /*float newValue = (childHeight + (childHeight / 2.0f)) / ((childHeight * childCount) - viewHeigth);
+            scrollRect.verticalNormalizedPosition = 1.0f - newValue;*/
+            float contentPos = childHeight + (childObj.rect.size.y / 2.0f);
+            scrollRect.content.localPosition = new Vector2(0, contentPos);
         }
 
         // 下方向判定
@@ -87,6 +89,8 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
             ChangeIndex(true);
             /*float newValue = ((childHeight * (childCount - 2)) + (childHeight / 2.0f)) / (childHeight * childCount);
             scrollRect.verticalNormalizedPosition = 1.0f - newValue;*/
+            float contentPos = ((childHeight * (childCount - 2)) + (childObj.rect.size.y / 2.0f))-viewHeigth;
+            scrollRect.content.localPosition = new Vector2(0, contentPos);
         }
     }
 
