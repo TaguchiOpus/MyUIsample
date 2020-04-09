@@ -3031,8 +3031,8 @@ GameObject:
   - component: {fileID: 1035389788}
   - component: {fileID: 1035389792}
   - component: {fileID: 1035389791}
-  - component: {fileID: 1035389790}
   - component: {fileID: 1035389789}
+  - component: {fileID: 1035389790}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1035389787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Script: {fileID: 11500000, guid: d1a7ae1faca63b5499d3d033b0519e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 515396796}
@@ -3099,10 +3099,10 @@ MonoBehaviour:
   m_Viewport: {fileID: 2105991082}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 487443112}
-  m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 1
-  m_HorizontalScrollbarSpacing: -3
-  m_VerticalScrollbarSpacing: -3
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

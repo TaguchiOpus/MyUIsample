@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwapTypeVerticalScrollView : MonoBehaviour
 {
     [SerializeField]
-    UnityEngine.UI.ScrollRect scrollRect;
+    UnityEngine.UI.CustomScrollRect scrollRect;
     [SerializeField]
     UnityEngine.UI.VerticalLayoutGroup verLayout;
     [SerializeField]
@@ -19,7 +19,7 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
     {
         if (!scrollRect)
         {
-            scrollRect = GetComponent<UnityEngine.UI.ScrollRect>();
+            scrollRect = GetComponent<UnityEngine.UI.CustomScrollRect>();
         }
     }
 
@@ -81,6 +81,7 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
             scrollRect.verticalNormalizedPosition = 1.0f - newValue;*/
             float contentPos = childHeight + (childObj.rect.size.y / 2.0f);
             scrollRect.content.localPosition = new Vector2(0, contentPos);
+            scrollRect.ResetPointer();
         }
 
         // 下方向判定
@@ -91,6 +92,7 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
             scrollRect.verticalNormalizedPosition = 1.0f - newValue;*/
             float contentPos = ((childHeight * (childCount - 2)) + (childObj.rect.size.y / 2.0f))-viewHeigth;
             scrollRect.content.localPosition = new Vector2(0, contentPos);
+            scrollRect.ResetPointer();
         }
     }
 
