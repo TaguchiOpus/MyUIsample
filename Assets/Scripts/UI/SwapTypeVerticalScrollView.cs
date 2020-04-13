@@ -11,6 +11,7 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
     [SerializeField]
     RectTransform childObj;
 
+    int itemCount = 0;
     int ChildCount { get { return scrollRect.content.childCount; } }
 
     int[] data = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -21,18 +22,27 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
         {
             scrollRect = GetComponent<UnityEngine.UI.CustomScrollRect>();
         }
+
+        foreach (RectTransform child in scrollRect.content)
+        {
+            int index = child.GetSiblingIndex();
+            UpdateItem(child, index);
+        }
+
+        scrollRect.onValueChanged.AddListener(SwapScroll);
+        scrollRect.UpdateVerticalBerSizeEX(UpdateVerticalBerSize);
+        scrollRect.UpdateVerticalBerValueEX(UpdateVerticalBerValue);
     }
 
     private void Update()
     {
-       SwapScroll();
     }
 
     /// <summary>
     /// スクロール
     /// </summary>
     /// <param name="index"></param>
-    void SwapScroll()
+    void SwapScroll(Vector2 vector2)
     {
         // 間隔
         float space = verLayout.spacing;
@@ -47,9 +57,11 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
 
         // 子要素のサイズ
         float childHeight = childObj.rect.size.y + space;
+        // 全要素のサイズ
+        float childFullHeight = verLayout.padding.top + verLayout.padding.bottom + (childHeight * childCount) - space;
 
         // 現在の中心座標
-        float centerPos = ((childHeight * childCount - viewHeigth) * scrollValue) + halfViewHeight;
+        float centerPos = ((childFullHeight - viewHeigth) * scrollValue) + halfViewHeight;
         // 上端の座標
         float topPos = centerPos - halfViewHeight;
         // 下端の座標
@@ -74,7 +86,7 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
         float lastBottomPos = (childHeight * index) + childHeight;
 
         // 上方向判定
-        if (firstCenterPos > topPos)
+        if (firstCenterPos > topPos && itemCount > 0)
         {
             ChangeIndex(false);
             /*float newValue = (childHeight + (childHeight / 2.0f)) / ((childHeight * childCount) - viewHeigth);
@@ -85,12 +97,12 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
         }
 
         // 下方向判定
-        if (lastCenterPos < bottomPos)
+        if (lastCenterPos < bottomPos && itemCount + childCount < data.Length)
         {
             ChangeIndex(true);
             /*float newValue = ((childHeight * (childCount - 2)) + (childHeight / 2.0f)) / (childHeight * childCount);
             scrollRect.verticalNormalizedPosition = 1.0f - newValue;*/
-            float contentPos = ((childHeight * (childCount - 2)) + (childObj.rect.size.y / 2.0f))-viewHeigth;
+            float contentPos = ((childHeight * (childCount - 2)) + (childObj.rect.size.y / 2.0f)) - viewHeigth;
             scrollRect.content.localPosition = new Vector2(0, contentPos);
             scrollRect.ResetPointer();
         }
@@ -105,8 +117,10 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
             children.Add(child);
 
         children[targetIndex].SetSiblingIndex(toIndex);
+        
         if (forward)
         {
+            itemCount++;
             for(int i = 1;i < children.Count; i++)
             {
                 children[i].SetSiblingIndex(i - 1);
@@ -114,11 +128,46 @@ public class SwapTypeVerticalScrollView : MonoBehaviour
         }
         else
         {
+            itemCount--;
             for(int i = 0;i < children.Count - 1; i++)
             {
                 children[i].SetSiblingIndex(i + 1);
             }
         }
 
+        int dataIndex = forward ? itemCount + ChildCount-1 : itemCount;
+        UpdateItem(children[targetIndex], dataIndex);
+
+    }
+
+    protected virtual void UpdateItem(RectTransform target,int dataIndex)
+    {
+        var text = target.GetComponentInChildren<UnityEngine.UI.Text>();
+        if (text != null)
+            text.text = data[dataIndex].ToString();
+    }
+
+    private float UpdateVerticalBerSize(float view_size_y,float offset_y)
+    {
+        // 間隔
+        float space = verLayout.spacing;
+        // 子要素のサイズ
+        float childHeight = childObj.rect.size.y + space;
+        // 全データ数のサイズ
+        float childFullHeight = verLayout.padding.top + verLayout.padding.bottom + (childHeight * data.Length) - space;
+        return (view_size_y - offset_y) / childFullHeight;
+    }
+
+    private float UpdateVerticalBerValue(float view_min_y,float view_size_y,float content_min_y)
+    {
+        // 間隔
+        float space = verLayout.spacing;
+        // 子要素のサイズ
+        float childHeight = childObj.rect.size.y + space;
+        // 全データ数のサイズ
+        float contentSizeY = verLayout.padding.top + verLayout.padding.bottom + (childHeight * data.Length) - space;
+
+        float contentMinY = content_min_y - (childHeight * (data.Length - ((itemCount) + ChildCount)));
+        return (view_min_y - contentMinY) / (contentSizeY - view_size_y);
     }
 }

@@ -877,6 +877,19 @@ namespace UnityEngine.UI
             m_PrevContentBounds = m_ContentBounds;
         }
 
+        protected Func<float, float, float> updateVerticalBerSizeEX = null;
+        public void UpdateVerticalBerSizeEX(Func<float, float, float> on_update)
+        {
+            updateVerticalBerSizeEX = null;
+            updateVerticalBerSizeEX = on_update;
+        }
+        protected Func<float, float, float, float> updateVerticalBerValueEx = null;
+        public void UpdateVerticalBerValueEX(Func<float, float,float,float> on_update)
+        {
+            updateVerticalBerValueEx = null;
+            updateVerticalBerValueEx = on_update;
+        }
+
         private void UpdateScrollbars(Vector2 offset)
         {
             if (m_HorizontalScrollbar)
@@ -892,13 +905,23 @@ namespace UnityEngine.UI
             if (m_VerticalScrollbar)
             {
                 if (m_ContentBounds.size.y > 0)
-                    m_VerticalScrollbar.size = Mathf.Clamp01((m_ViewBounds.size.y - Mathf.Abs(offset.y)) / m_ContentBounds.size.y);
+                {
+                    if (updateVerticalBerSizeEX == null)
+                        m_VerticalScrollbar.size = Mathf.Clamp01((m_ViewBounds.size.y - Mathf.Abs(offset.y)) / m_ContentBounds.size.y);
+                    else
+                        m_VerticalScrollbar.size = Mathf.Clamp01(updateVerticalBerSizeEX(m_ViewBounds.size.y, Mathf.Abs(offset.y)));
+                }
                 else
                     m_VerticalScrollbar.size = 1;
 
-                m_VerticalScrollbar.value = verticalNormalizedPosition;
+                if (updateVerticalBerValueEx == null)
+                    m_VerticalScrollbar.value = verticalNormalizedPosition;
+                else
+                    m_VerticalScrollbar.SetValueWithoutNotify(updateVerticalBerValueEx(m_ViewBounds.min.y, m_ViewBounds.size.y, m_ContentBounds.min.y));
             }
+            
         }
+
 
         /// <summary>
         /// The scroll position as a Vector2 between (0,0) and (1,1) with (0,0) being the lower left corner.
