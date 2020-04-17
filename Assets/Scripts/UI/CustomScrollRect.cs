@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 namespace UnityEngine.UI
 {
@@ -125,6 +126,17 @@ namespace UnityEngine.UI
         /// </code>
         /// </example>
         public RectTransform content { get { return m_Content; } set { m_Content = value; } }
+        public RectTransform GetChild(int index = 0)
+        {
+            List<RectTransform> children = new List<RectTransform>();
+            foreach (RectTransform child in m_Content.transform)
+                children.Add(child);
+
+            if (index < children.Count)
+                return children[index];
+            else
+                return null;
+        }
 
         [SerializeField]
         private bool m_Horizontal = true;
@@ -1037,6 +1049,13 @@ namespace UnityEngine.UI
         private void SetHorizontalNormalizedPosition(float value) { SetNormalizedPosition(value, 0); }
         private void SetVerticalNormalizedPosition(float value) { SetNormalizedPosition(value, 1); }
 
+        protected Func<float, float, float, float,float> verticalNormalizePositionEX = null;
+        public void SetVerticalNormalizePositionEX(Func<float, float, float, float,float> func)
+        {
+            verticalNormalizePositionEX = null;
+            verticalNormalizePositionEX = func;
+        }
+
         /// <summary>
         /// >Set the horizontal or vertical scroll position as a value between 0 and 1, with 0 being at the left or at the bottom.
         /// </summary>
@@ -1052,6 +1071,9 @@ namespace UnityEngine.UI
             float contentBoundsMinPosition = m_ViewBounds.min[axis] - value * hiddenLength;
             // The new content localPosition, in the space of the view.
             float newLocalPosition = m_Content.localPosition[axis] + contentBoundsMinPosition - m_ContentBounds.min[axis];
+
+            if (verticalNormalizePositionEX != null && axis == 1)
+                newLocalPosition = verticalNormalizePositionEX(m_ViewBounds.min[axis], m_ViewBounds.size[axis], m_ContentBounds.min[axis],value);
 
             Vector3 localPosition = m_Content.localPosition;
             if (Mathf.Abs(localPosition[axis] - newLocalPosition) > 0.01f)

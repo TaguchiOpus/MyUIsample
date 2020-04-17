@@ -4223,7 +4223,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: 46.80851, y: 25.531916}
+  m_SizeDelta: {x: 44.81793, y: 24.64986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6119367424369212638
 CanvasRenderer:
@@ -4839,7 +4839,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 67, y: 32}
-  m_SizeDelta: {x: 46.80851, y: 25.531916}
+  m_SizeDelta: {x: 44.81793, y: 24.64986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5561764985720777586
 CanvasRenderer:
@@ -5184,7 +5184,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -38}
-  m_SizeDelta: {x: 140.42554, y: 25.531916}
+  m_SizeDelta: {x: 134.45378, y: 24.64986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4340160941500313647
 CanvasRenderer:
@@ -6441,7 +6441,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: 117.02128, y: 25.531916}
+  m_SizeDelta: {x: 112.04482, y: 24.64986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6987943085621832304
 CanvasRenderer:
@@ -9825,6 +9825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationManager: {fileID: 5046827127627686252}
+  swapScroll: {fileID: 0}
 --- !u!1 &8279205451575238012
 GameObject:
   m_ObjectHideFlags: 0

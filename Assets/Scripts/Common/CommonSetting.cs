@@ -23,6 +23,48 @@ namespace CommonSetting
         Summon
     }
 
+    public enum ProfileKind
+    {
+        [Description("➖")]
+        None = -1,
+        [Description("なし")]
+        Empty = 0,
+        [Description("ID")]
+        Master,
+        [Description("登録")]
+        Unique,
+        [Description("名前")]
+        Name,
+        [Description("カテゴリ")]
+        Category,
+        [Description("レベル")]
+        Level,
+        [Description("希少度")]
+        Rarity,
+        [Description("武器種")]
+        Job,
+        [Description("属性")]
+        Element,
+    }
+
+    public enum ObjectCategory
+    {
+        [Description("➖")]
+        None = -1,
+        [Description("なし")]
+        Empty = 0,
+        [Description("キャラ")]
+        Character,
+        [Description("武器")]
+        Weapon,
+        [Description("護符")]
+        Amulet,
+        [Description("ドラゴン")]
+        Doragon,
+        [Description("アイテム")]
+        Item,
+    }
+
     public static class CommonSetting
     {
         public static string GetName(this SceneName sceneName)

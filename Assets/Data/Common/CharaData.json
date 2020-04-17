@@ -1,0 +1,121 @@
+{
+  "chara_list": [
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 1,
+      "_name": "ユーシャ",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 2,
+      "_master_id": 1002,
+      "_category": 1,
+      "_name": "キシ",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 4
+    },
+    {
+      "_id": 3,
+      "_master_id": 1003,
+      "_category": 1,
+      "_name": "トーゾク",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 5
+    },
+    {
+      "_id": 4,
+      "_master_id": 1004,
+      "_category": 1,
+      "_name": "セッコー",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 2
+    },
+    {
+      "_id": 5,
+      "_master_id": 1005,
+      "_category": 1,
+      "_name": "ブシ",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 6,
+      "_master_id": 1006,
+      "_category": 1,
+      "_name": "マジョ",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 7
+    },
+    {
+      "_id": 7,
+      "_master_id": 1007,
+      "_category": 1,
+      "_name": "カリュード",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 6
+    },
+    {
+      "_id": 8,
+      "_master_id": 1008,
+      "_category": 1,
+      "_name": "ソーリョ",
+      "_rarity": 3,
+      "_lv": 60,
+      "_job": 7
+    },
+    {
+      "_id": 9,
+      "_master_id": 1101,
+      "_category": 1,
+      "_name": "ケンセー",
+      "_rarity": 5,
+      "_lv": 80,
+      "_job": 3
+    },
+    {
+      "_id": 10,
+      "_master_id": 1071,
+      "_category": 1,
+      "_name": "マドーシ",
+      "_rarity": 4,
+      "_lv": 70,
+      "_job": 7
+    },
+    {
+      "_id": 11,
+      "_master_id": 1201,
+      "_category": 1,
+      "_name": "ゴエモン",
+      "_rarity": 5,
+      "_lv": 80,
+      "_job": 2
+    },
+    {
+      "_id": 12,
+      "_master_id": 1041,
+      "_category": 1,
+      "_name": "セーキシ",
+      "_rarity": 4,
+      "_lv": 70,
+      "_job": 4
+    },
+    {
+      "_id": 13,
+      "_master_id": 1601,
+      "_category": 1,
+      "_name": "コーチュウ",
+      "_rarity": 5,
+      "_lv": 80,
+      "_job": 6
+    }
+  ]
+}

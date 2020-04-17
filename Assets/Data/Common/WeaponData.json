@@ -1,0 +1,409 @@
+{
+  "weapon_list": [
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 2,
+      "_name": "木剣",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 1
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 2,
+      "_name": "木刀",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 3
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 2,
+      "_name": "果物ナイフ",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 2
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 2,
+      "_name": "果物ナイフ",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 2
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 2,
+      "_name": "果物ナイフ",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 2
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 2,
+      "_name": "果物ナイフ",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 2
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 2,
+      "_name": "果物ナイフ",
+      "_rarity": 1,
+      "_lv": 60,
+      "_job": 2
+    },
+    {
+      "_id": 1,
+      "_master_id": 1024,
+      "_category": 2,
+      "_name": "ランス",
+      "_rarity": 2,
+      "_lv": 60,
+      "_job": 4
+    },
+    {
+      "_id": 1,
+      "_master_id": 1024,
+      "_category": 2,
+      "_name": "ランス",
+      "_rarity": 2,
+      "_lv": 60,
+      "_job": 4
+    },
+    {
+      "_id": 1,
+      "_master_id": 1024,
+      "_category": 2,
+      "_name": "ランス",
+      "_rarity": 2,
+      "_lv": 60,
+      "_job": 4
+    },
+    {
+      "_id": 1,
+      "_master_id": 1024,
+      "_category": 2,
+      "_name": "ランス",
+      "_rarity": 2,
+      "_lv": 60,
+      "_job": 4
+    },
+    {
+      "_id": 1,
+      "_master_id": 1035,
+      "_category": 2,
+      "_name": "バトルアックス",
+      "_rarity": 3,
+      "_lv": 80,
+      "_job": 5
+    },
+    {
+      "_id": 1,
+      "_master_id": 1035,
+      "_category": 2,
+      "_name": "バトルアックス",
+      "_rarity": 3,
+      "_lv": 80,
+      "_job": 5
+    },
+    {
+      "_id": 1,
+      "_master_id": 1035,
+      "_category": 2,
+      "_name": "バトルアックス",
+      "_rarity": 3,
+      "_lv": 80,
+      "_job": 5
+    },
+    {
+      "_id": 1,
+      "_master_id": 1056,
+      "_category": 2,
+      "_name": "アポロンの弓",
+      "_rarity": 5,
+      "_lv": 100,
+      "_job": 6
+    },
+    {
+      "_id": 1,
+      "_master_id": 1047,
+      "_category": 2,
+      "_name": "大魔導士の杖",
+      "_rarity": 4,
+      "_lv": 90,
+      "_job": 7
+    },
+    {
+      "_id": 1,
+      "_master_id": 1047,
+      "_category": 2,
+      "_name": "大魔導士の杖",
+      "_rarity": 4,
+      "_lv": 90,
+      "_job": 7
+    },
+    {
+      "_id": 1,
+      "_master_id": 1028,
+      "_category": 2,
+      "_name": "棍",
+      "_rarity": 2,
+      "_lv": 70,
+      "_job": 8
+    },
+    {
+      "_id": 1,
+      "_master_id": 1028,
+      "_category": 2,
+      "_name": "棍",
+      "_rarity": 2,
+      "_lv": 70,
+      "_job": 8
+    },
+    {
+      "_id": 1,
+      "_master_id": 1028,
+      "_category": 2,
+      "_name": "棍",
+      "_rarity": 2,
+      "_lv": 70,
+      "_job": 8
+    },
+    {
+      "_id": 1,
+      "_master_id": 1028,
+      "_category": 2,
+      "_name": "棍",
+      "_rarity": 2,
+      "_lv": 70,
+      "_job": 8
+    },
+    {
+      "_id": 1,
+      "_master_id": 1028,
+      "_category": 2,
+      "_name": "棍",
+      "_rarity": 2,
+      "_lv": 70,
+      "_job": 8
+    },
+    {
+      "_id": 1,
+      "_master_id": 1028,
+      "_category": 2,
+      "_name": "棍",
+      "_rarity": 2,
+      "_lv": 70,
+      "_job": 8
+    }
+  ]
+}
