@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using CommonSetting;
+using UniRx;
 
 public class ProfileIconUI : MonoBehaviour
 {
@@ -15,17 +16,27 @@ public class ProfileIconUI : MonoBehaviour
     [SerializeField]
     protected Image[] gladeIcons;
 
-    protected IObjectProfile souce = new IObjectProfile();
+    protected IObjectProfile source = new IObjectProfile();
 
     #region const
     #endregion
+
+    #region Subscribe
+    Subject<IObjectProfile> observePick = new Subject<IObjectProfile>();
+    public Subject<IObjectProfile> ObservePick() { return observePick; }
+    #endregion
+
+    private void Start()
+    {
+        mainIcon.OnClickAsObservable().Subscribe(_ => observePick.OnNext(source));
+    }
 
     public void Setup(IObjectProfile profile)
     {
         if (profile == null)
             return;
 
-        souce = profile;
+        source = profile;
         UpdateContents();
         gameObject.SetActive(true);
     }
@@ -33,7 +44,7 @@ public class ProfileIconUI : MonoBehaviour
     public virtual void UpdateContents()
     {
         Color iconColor = Color.white;
-        switch ((ObjectCategory)souce.GetInt(ProfileKind.Category))
+        switch ((ObjectCategory)source.GetInt(ProfileKind.Category))
         {
             case ObjectCategory.Character:
                 iconColor = Color.cyan;break;
@@ -46,9 +57,9 @@ public class ProfileIconUI : MonoBehaviour
         }
         mainIcon.image.color = iconColor;
 
-        mainText.text = souce.Name;
+        mainText.text = source.Name;
 
-        int rare = souce.GetInt(ProfileKind.Rarity);
+        int rare = source.GetInt(ProfileKind.Rarity);
         for(int i = 0; i < rareIcons.Length; i++)
         {
             rareIcons[i].gameObject.SetActive(i < rare);

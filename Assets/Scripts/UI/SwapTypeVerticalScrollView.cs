@@ -21,17 +21,17 @@ public class  SwapTypeVerticalScrollView
 
     #region Property
     int ChildCount { get { return scrollRect.content.childCount; } }
-    public int DataCount { get { return dataCount; }set { dataCount = value; Reset(); } }
+    public int DataCount { get { return dataCount; }set { dataCount = value; Review(); } }
     public Action<RectTransform, int> UpdateItem { set { updateItem = value; } }
     #endregion
 
     public void Inisialize(UnityEngine.UI.CustomScrollRect scroll,int data_count, Action<RectTransform, int> on_swap = null)
     {
         updateItem = on_swap;
-        dataCount = data_count;
         scrollRect = scroll;
         verLayout = scrollRect.content.GetComponent<UnityEngine.UI.VerticalLayoutGroup>();
         childObj = scrollRect.GetChild();
+        dataCount = data_count;
         Reset();
         scrollRect.onValueChanged.AddListener(SwapScroll);
         scrollRect.UpdateVerticalBerSizeEX(UpdateVerticalBerSize);
@@ -39,14 +39,27 @@ public class  SwapTypeVerticalScrollView
         scrollRect.SetVerticalNormalizePositionEX(VerticalNorNormalizedPosition);
     }
 
-    public void Reset()
+    /// <summary>
+    /// 表示を更新
+    /// </summary>
+    public void Review()
     {
-        scrollRect.ResetPointer();
         foreach (RectTransform child in scrollRect.content)
         {
-            int index = child.GetSiblingIndex();
+            int index = child.GetSiblingIndex() + swapCount;
             updateItem(child, index);
         }
+    }
+
+    /// <summary>
+    /// スクロール位置をリセット
+    /// </summary>
+    public void Reset()
+    {
+        swapCount = 0;
+        scrollRect.content.localPosition = Vector2.zero;
+        scrollRect.Rebuild(UnityEngine.UI.CanvasUpdate.PostLayout);
+        Review();
     }
 
     /// <summary>

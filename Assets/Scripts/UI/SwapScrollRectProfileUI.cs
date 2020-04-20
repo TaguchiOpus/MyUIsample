@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UniRx;
+using System.Linq;
 
 public class SwapScrollRectProfileUI : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class SwapScrollRectProfileUI : MonoBehaviour
 
     SwapTypeVerticalScrollView swapScroll = new SwapTypeVerticalScrollView();
     List<IObjectProfile> source = new List<IObjectProfile>();
+
+    #region Subject
+    Subject<IObjectProfile> observePick = new Subject<IObjectProfile>();
+    public Subject<IObjectProfile> ObservePick() { return observePick; }
+    #endregion
+
+    bool isInitialized = false;
 
     public List<IObjectProfile> Source 
     { 
@@ -32,6 +40,20 @@ public class SwapScrollRectProfileUI : MonoBehaviour
         source = data;
         int dataCount = GetDataCount();
         swapScroll.Inisialize(scrollRect, dataCount, UpdateItem);
+
+        if (!isInitialized)
+        {
+            isInitialized = true;
+            List<ProfileIconCollectionUI> collectionUIs = new List<ProfileIconCollectionUI>();
+            foreach(RectTransform child in scrollRect.content.transform)
+            {
+                collectionUIs.Add(child.GetComponent<ProfileIconCollectionUI>());
+            }
+            var icons = collectionUIs.Select(x => x.ProfileIcons).FirstOrDefault();
+            var stream = Observable.Merge(icons.Select(x2 => x2.ObservePick()).ToList()).First().Repeat()
+                .Subscribe(profile => observePick.OnNext(profile));
+            
+        }
         yield break;
     }
 

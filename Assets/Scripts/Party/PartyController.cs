@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UniRx.Async;
 
 public class PartyController : MyControllerBase
 {
     [SerializeField]
     PartyAnimationManager animationManager;
     [SerializeField]
-    SwapScrollRectProfileUI swapScroll;
+    PartyScrollViewObjects viewObjects;
 
     public PartyModel partyModel = new PartyModel();
 
@@ -22,8 +23,8 @@ public class PartyController : MyControllerBase
     public override IEnumerator OnSetup()
     {
         yield return partyModel.Load();
-        yield return swapScroll.Initialize(partyModel.WeaponDataList.Cast<IObjectProfile>().ToList());
-        swapScroll.gameObject.SetActive(true);
+        viewObjects.Initialize(partyModel);
+        viewObjects.gameObject.SetActive(true);
         yield return animationManager.Setup();
         animationManager.StandbyAnimation(true);
         gameObject.SetActive(true);
