@@ -44,14 +44,18 @@ public class SwapScrollRectProfileUI : MonoBehaviour
         if (!isInitialized)
         {
             isInitialized = true;
-            List<ProfileIconCollectionUI> collectionUIs = new List<ProfileIconCollectionUI>();
+            List<ProfileIconUI> iconUIs = new List<ProfileIconUI>();
             foreach(RectTransform child in scrollRect.content.transform)
             {
-                collectionUIs.Add(child.GetComponent<ProfileIconCollectionUI>());
+                var collecctionUI = child.GetComponent<ProfileIconCollectionUI>();
+                if (collecctionUI != null)
+                    iconUIs.AddRange(collecctionUI.ProfileIcons.ToList());
             }
-            var icons = collectionUIs.Select(x => x.ProfileIcons).FirstOrDefault();
-            var stream = Observable.Merge(icons.Select(x2 => x2.ObservePick()).ToList()).First().Repeat()
-                .Subscribe(profile => observePick.OnNext(profile));
+            var stream = Observable.Merge(iconUIs.Select(x=>x.ObservePick())).First().Repeat()
+                .Subscribe(profile =>
+                {
+                    observePick.OnNext(profile);
+                });
             
         }
         yield break;

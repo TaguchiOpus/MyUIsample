@@ -57,7 +57,7 @@ namespace CommonSetting
         Character,
         [Description("武器")]
         Weapon,
-        [Description("護符")]
+        [Description("装飾品")]
         Amulet,
         [Description("ドラゴン")]
         Doragon,

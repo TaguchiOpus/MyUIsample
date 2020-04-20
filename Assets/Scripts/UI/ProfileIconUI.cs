@@ -28,7 +28,10 @@ public class ProfileIconUI : MonoBehaviour
 
     private void Start()
     {
-        mainIcon.OnClickAsObservable().Subscribe(_ => observePick.OnNext(source));
+        mainIcon.OnClickAsObservable().Subscribe(_ =>
+        {
+            observePick.OnNext(source);
+        });
     }
 
     public void Setup(IObjectProfile profile)

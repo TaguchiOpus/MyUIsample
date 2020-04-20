@@ -1,0 +1,92 @@
+{
+  "dragon_list": [
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 4,
+      "_name": "小竜",
+      "_rarity": 3,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 4,
+      "_name": "小竜",
+      "_rarity": 3,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1001,
+      "_category": 4,
+      "_name": "小竜",
+      "_rarity": 3,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 4,
+      "_name": "火竜",
+      "_rarity": 4,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 4,
+      "_name": "火竜",
+      "_rarity": 4,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1002,
+      "_category": 4,
+      "_name": "火竜",
+      "_rarity": 4,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 4,
+      "_name": "水竜",
+      "_rarity": 4,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 4,
+      "_name": "水竜",
+      "_rarity": 4,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1003,
+      "_category": 4,
+      "_name": "水竜",
+      "_rarity": 4,
+      "_lv": 60
+    },
+    {
+      "_id": 1,
+      "_master_id": 1052,
+      "_category": 4,
+      "_name": "紅竜",
+      "_rarity": 5,
+      "_lv": 100
+    },
+    {
+      "_id": 1,
+      "_master_id": 1053,
+      "_category": 4,
+      "_name": "蒼竜",
+      "_rarity": 5,
+      "_lv": 100
+    }
+  ]
+}

@@ -6,6 +6,7 @@ using CommonSetting;
 using UniRx;
 using UniRx.Async;
 using System.Linq;
+using System.IO;
 
 public class PartyScrollViewObjects : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class PartyScrollViewObjects : MonoBehaviour
             swapScroll.ObservePick()
                 .Subscribe(profile =>
                 {
-                    
+                    DebugSetting.DebugSetting.MyDebugLog(JsonUtility.ToJson(profile));
                 });
         }
 
@@ -91,6 +92,6 @@ public class PartyScrollViewObjects : MonoBehaviour
         var data = modelParty.GetDataList(currentTab);
 
         if (countText)
-            countText.text = string.Format("{0}/{1}", data.Count, HAVE_MAX);
+            countText.text = string.Format("{0} / {1}", data.Count, HAVE_MAX);
     }
 }

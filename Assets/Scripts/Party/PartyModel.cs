@@ -9,16 +9,22 @@ public class PartyModel
 	#region Const
 	const string CharaDataFilePath = "/Data/Common/CharaData.json";
     const string WeaponDataFilePath = "/Data/Common/WeaponData.json";
+    const string AmuletDataFilePath = "/Data/Common/AmuletData.json";
+    const string DragonDataFilePath = "/Data/Common/DragonData.json";
     #endregion
 
     #region Field
     private List<CharacterProfile> charaDataList;
     private List<WeaponProfile> weaponDataList;
+    private List<AmuletProfile> amuletDataList;
+    private List<DragonProfile> dragonDataList;
     #endregion
 
     #region Property
     public List<CharacterProfile> CharaDataList { get { return charaDataList; } }
     public List<WeaponProfile> WeaponDataList { get { return weaponDataList; } }
+    public List<DragonProfile> DoragonDataList { get { return dragonDataList; } }
+    public List<AmuletProfile> AmuletDataList { get { return amuletDataList; } }
     #endregion
 
     public List<IObjectProfile> GetDataList(CommonSetting.ObjectCategory category)
@@ -30,7 +36,10 @@ public class PartyModel
                 res = charaDataList.Cast<IObjectProfile>().ToList();break;
             case CommonSetting.ObjectCategory.Weapon:
                 res = weaponDataList.Cast<IObjectProfile>().ToList(); break;
-
+            case CommonSetting.ObjectCategory.Amulet:
+                res = amuletDataList.Cast<IObjectProfile>().ToList(); break;
+            case CommonSetting.ObjectCategory.Doragon:
+                res = dragonDataList.Cast<IObjectProfile>().ToList(); break;
         }
 
         return res;
@@ -42,6 +51,10 @@ public class PartyModel
             yield return LoadCharaData();
         if (weaponDataList == null)
             yield return  LoadWeaponData();
+        if (amuletDataList == null)
+            yield return LoadAmuletData();
+        if (dragonDataList == null)
+            yield return LoadDragonData();
 
         yield break;
     }
@@ -79,6 +92,40 @@ public class PartyModel
 
         yield break;
     }
+
+    private IEnumerator LoadAmuletData()
+    {
+        List<AmuletProfile> res = new List<AmuletProfile>();
+
+        StreamReader reader = new StreamReader(Application.dataPath + AmuletDataFilePath);
+        string str = reader.ReadToEnd();
+        reader.Close();
+
+        var data = JsonUtility.FromJson<AmuletDatas>(str);
+        if (data != null)
+            res = data.amulet_list.ToList();
+
+        amuletDataList = res;
+
+        yield break;
+    }
+
+    private IEnumerator LoadDragonData()
+    {
+        List<DragonProfile> res = new List<DragonProfile>();
+
+        StreamReader reader = new StreamReader(Application.dataPath + DragonDataFilePath);
+        string str = reader.ReadToEnd();
+        reader.Close();
+
+        var data = JsonUtility.FromJson<DragonDatas>(str);
+        if (data != null)
+            res = data.dragon_list.ToList();
+
+        dragonDataList = res;
+
+        yield break;
+    }
 }
 
 [System.Serializable]
@@ -91,5 +138,17 @@ public class CharaDatas
 public class WeaponDatas
 {
     public WeaponProfile[] weapon_list;
+}
+
+[System.Serializable]
+public class AmuletDatas
+{
+    public AmuletProfile[] amulet_list;
+}
+
+[System.Serializable]
+public class DragonDatas
+{
+    public DragonProfile[] dragon_list;
 }
 
